@@ -1,3 +1,4 @@
+import 'package:dashboardapp/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 
 class LargeScreen extends StatelessWidget {
@@ -5,11 +6,10 @@ class LargeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(   // EL LAYOUT SE SEPARA EN 6 PARTES
+    return Row( 
+        // EL LAYOUT SE SEPARA EN 6 PARTES
           children: [
-            Expanded(child:Container(  // Menu lateral 1 parte
-              color: Colors.red,
-              )),
+            Expanded(child: SideMenu()),
             Expanded(
               flex : 5,
               child: Container(  // 5 Partes lo demas   , es decir el menu abarca 1/6 de pantalla

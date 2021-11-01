@@ -3,10 +3,14 @@
 
 import 'package:dashboardapp/layout.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'controllers/menu_controller.dart';
+
+
 void main(){
+  Get.put(MenuController()); // Controlador parte de GetX para mostrar Menu y Navegar
   runApp(const MyApp());
 }
 
