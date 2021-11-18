@@ -10,13 +10,13 @@ import 'custom_text.dart';
 class VerticalMenuItem extends StatelessWidget {
   
   final String itemName;
-  final Function onTapL;
-  const VerticalMenuItem ( { Key? key , required this.itemName, required this.onTapL}) : super(key: key);
+  final  onTap;
+  const VerticalMenuItem ( { Key? key , required this.itemName, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _onTap,
+      onTap: onTap,
       onHover: (value){
         value ?
         menuController.onHover(itemName) : menuController.onHover("not hovering");
@@ -58,6 +58,4 @@ class VerticalMenuItem extends StatelessWidget {
       ),
     ));
   }
-  
-  _onTap() => onTapL;
 }

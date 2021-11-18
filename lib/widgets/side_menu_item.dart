@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 class SideMenuItem extends StatelessWidget {
   
   final String itemName;
-  final Function onTapL;
-  const SideMenuItem({ Key? key ,required this.itemName,required this.onTapL, }) : super(key: key);
+  final  onTap;
+  const SideMenuItem({ Key? key ,required this.itemName,required this.onTap, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if(ResponsiveWidget.isCustomScreen(context)) 
-      return VerticalMenuItem(itemName: itemName,onTapL:onTapL);
-    else 
-      return HorizontalMenuItem(itemName, onTapL);
+    if(ResponsiveWidget.isCustomScreen(context)) {
+      return VerticalMenuItem(itemName: itemName,onTap:onTap);
+    } else {
+      return HorizontalMenuItem(itemName: itemName,onTap:onTap);
+    }
     
   }
 }

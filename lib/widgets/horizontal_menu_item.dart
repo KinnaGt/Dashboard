@@ -6,15 +6,15 @@ import 'package:get/get.dart';
 
 class HorizontalMenuItem extends StatelessWidget {
   final String itemName;
-  final Function onTapL;
-  const HorizontalMenuItem(this.itemName, this.onTapL, { Key? key }) : super(key: key);
+  final  onTap;
+  const HorizontalMenuItem({ Key? key, required this.itemName, required this.onTap }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
 
     return InkWell(
-      onTap: _onTap,
+      onTap: onTap,
       onHover: (value){
         value ?
         menuController.onHover(itemName) : menuController.onHover("not hovering");
@@ -54,6 +54,6 @@ class HorizontalMenuItem extends StatelessWidget {
     );
   }
 
-  _onTap() => onTapL;
+  
 
 }
