@@ -1,3 +1,4 @@
+import 'package:dashboardapp/pages/404/error_page.dart';
 import 'package:dashboardapp/pages/clients/clients.dart';
 import 'package:dashboardapp/pages/drivers/drivers.dart';
 import 'package:dashboardapp/pages/overview/overview.dart';
@@ -13,7 +14,7 @@ Route<dynamic> generateRoute(RouteSettings settings){ // take route settings and
     case ClientsPageRoute:
       return _getPageRoute(ClientsPage());
     default:
-      return _getPageRoute(OverViewPage());
+      return _getPageRoute( PageNotFound());
   }
 }
 

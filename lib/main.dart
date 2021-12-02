@@ -3,6 +3,9 @@
 
 import 'package:dashboardapp/controllers/navigation_controller.dart';
 import 'package:dashboardapp/layout.dart';
+import 'package:dashboardapp/pages/404/error_page.dart';
+import 'package:dashboardapp/pages/authentication/authentication.dart';
+import 'package:dashboardapp/routings/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,6 +26,16 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      
+        initialRoute: AuthenticationPageRoute,
+        unknownRoute: GetPage(name: "/not-found", page: () => PageNotFound()),
+        getPages: [
+          GetPage(name: RootRoute, page: () =>SiteLayout()),
+          GetPage(name: AuthenticationPageRoute, page: () => const AuthenticationPage()),
+        ],
+        
+
+
         debugShowCheckedModeBanner: false,
         title: "Dashboard",
         theme:ThemeData(
@@ -38,7 +51,6 @@ class MyApp extends StatelessWidget{
           }),
         primaryColor: Colors.blue
         ),
-        home: SiteLayout()
     );
   }
 

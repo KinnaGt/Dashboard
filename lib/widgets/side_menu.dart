@@ -2,6 +2,7 @@
 import 'package:dashboardapp/constants/controller.dart';
 import 'package:dashboardapp/constants/style.dart';
 import 'package:dashboardapp/helpers/responsiveness.dart';
+import 'package:dashboardapp/pages/authentication/authentication.dart';
 import 'package:dashboardapp/routings/routes.dart';
 import 'package:dashboardapp/widgets/custom_text.dart';
 import 'package:dashboardapp/widgets/side_menu_item.dart';
@@ -44,20 +45,21 @@ class SideMenu extends StatelessWidget {
 
           Column(
             mainAxisSize: MainAxisSize.min,
-            children: sideMenuItems.map((itemName)=> SideMenuItem(
-                itemName: itemName== AuthenticationPageRoute ? "Log Out" : itemName,
+            children: sideMenuItemRoutes.map((item)=> SideMenuItem(
+                itemName: item.name,
                   onTap: (){
 
-                    if(itemName == AuthenticationPageRoute){
-                      //TODO:: go to authentication PAGE
+                    if(item.route == AuthenticationPageRoute){
+                      menuController.changeActiveItemTo(OverviewPageDisplayName);
+                      Get.offAllNamed(AuthenticationPageRoute);
                     }
 
-                    if(!menuController.isActive(itemName)){
-                      menuController.changeActiveItemTo(itemName);
-                      if(ResponsiveWidget.isSmallScreen(context)) {
+                    if(!menuController.isActive(item.name)){
+                      menuController.changeActiveItemTo(item.name);
+                      if(ResponsiveWidget.isSmallScreen(context)) 
                         Get.back();
-                      }
-                      navigationController.navigateTo(itemName);
+                      
+                      navigationController.navigateTo(item.route);
                     }
                   })
                 ).toList()  
